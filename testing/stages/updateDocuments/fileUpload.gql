@@ -1,0 +1,15 @@
+subscription WATCH_UPLOAD($token:String!) {
+  fileUpload(id:$token) {
+    error {
+      message 
+      name
+      code
+    }
+    data {
+      id 
+      url 
+      filename
+      mimetype
+    }
+  }   
+} 

@@ -1,0 +1,30 @@
+query getProfile {
+  getOwnProfile(input: { 
+    employees: true
+    documents: true 
+    dpage: 1
+    edocs: true
+    edpage:1
+  }) {
+    name
+    rol
+    type
+    id 
+    employees {
+      name
+      documents {
+        url
+        filename
+        id
+      }
+    }
+    documents {
+      filename
+      id
+      url
+      author {
+        name
+      }
+    }
+  }
+}

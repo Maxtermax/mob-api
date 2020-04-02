@@ -1,0 +1,14 @@
+mutation crearArchivo($file: Upload!) {
+  createFile( 
+    file: $file, 
+    input: {
+      belongsTo: <belongsTo>
+      filename: "superbad.mp4"
+      size: "1500000",
+      mimetype: "video/mp4"
+    }
+  ) {
+    id 
+    url
+  }
+}

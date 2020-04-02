@@ -1,12 +1,14 @@
 const config = require("../config");
-const { connection, DataProvider, models } = require("../database");
+const { DataProvider, models } = require("../database");
 const logger = require("./logger");
 const resolvePromise = require("./resolvePromise");
 const mapErrorToResponse = require("./mapErrorToResponse");
+const hashPassword = require("./hashPassword");
 
 const libs = {
   ...config,
-  connection,
+  models,
+  hashPassword,
   DataProvider,
   logger,
   resolvePromise,
@@ -14,6 +16,5 @@ const libs = {
 };
 
 Object.assign(global, libs);
-Object.assign(global, libs, models());
 
 module.exports = libs;

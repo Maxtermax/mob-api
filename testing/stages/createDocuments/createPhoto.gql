@@ -1,0 +1,31 @@
+mutation crearArchivo($files: [Upload!]) {
+	createDocuments(
+    files:$files
+    input:[
+      {
+        departament: CHOCO
+        city:Quibdo
+        size: "464"
+        filename:"sanpacho.jpg"
+        mimetype:"image/jpg"
+        type:PHOTO        
+      }
+    ]
+  ) {
+    transactions {
+      message 
+      status 
+      data {
+        ok 
+        id 
+        url
+      }
+    } 
+    errors {
+      message 
+      name 
+      code
+    }
+  }  
+}
+

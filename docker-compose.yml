@@ -4,11 +4,11 @@ services:
     build: .
     depends_on:
       - db
+    environment:
+      DATABASE_URL: postgres://postgres:mobexample@db:5432/postgres
     ports:
       - "3000:3000"
-      - "3005:3005"
       - "9229:9229"
-      - "35729:35729"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -24,4 +24,4 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8000:8080
+      - 8080:8080

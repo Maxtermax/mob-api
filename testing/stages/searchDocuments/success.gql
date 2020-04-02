@@ -1,0 +1,16 @@
+query searchDocuments($documentsQuery: FindDocumentsInput) {
+  documents: findDocuments(input: $documentsQuery) {
+    filename
+    id
+    createAt
+    url
+    city
+    mimetype
+    departament
+    type
+    author {
+      name
+      email
+    }
+  }
+}           

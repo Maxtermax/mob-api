@@ -15,6 +15,12 @@
   "author": "maxtermax",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express-session": "^1.17.0",
+    "node-fetch": "^2.6.0",
+    "passport": "^0.4.1",
+    "passport-auth0": "^1.3.2",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.5"

@@ -1,0 +1,35 @@
+query getAllUsers {
+  findUsers(
+    input: { 
+      type: entity, 
+      documents: true,       
+      employees: true, 
+      edocs:true
+      page: 1 
+      dpage:1
+      edpage:1
+      workFor: true
+    }
+  ) {
+    name
+    rol
+    id
+    employees {
+      name
+      documents {
+        url
+        id 
+        filename
+        author {
+          name
+        }
+      }
+    }
+    documents {
+      url
+      author {
+        name
+      }
+    }
+  }
+}

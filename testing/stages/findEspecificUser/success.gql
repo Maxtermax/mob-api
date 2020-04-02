@@ -1,0 +1,27 @@
+query findEspecificUser {
+  findOneUser(input:{
+    id: "59921ea1b136d803cba449b3"    
+    documents: true
+    employees: true
+    edocs: true
+    workFor: true
+    dpage: 1
+  }) {
+    name
+    id
+    rol
+    workFor { 
+      name
+    }
+    employees {
+      name
+    }
+    documents {
+      url
+      id
+      author {
+        name
+      }
+    }
+  }
+}	

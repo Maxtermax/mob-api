@@ -1,0 +1,18 @@
+query getAllDocuments {
+  findDocuments(
+      input: {
+        page:1
+        author:true 
+        type:ACTA
+      }
+  ) {
+    files {
+      id
+	    filename
+	    url
+			mimetype      
+      size 
+    }
+   	author { name }
+  }
+}

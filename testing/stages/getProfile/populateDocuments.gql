@@ -1,0 +1,26 @@
+query getProfile {
+  getOwnProfile(input: { 
+    documents: true 
+    dpage: 1
+  }) {
+    name
+    rol
+    type
+    id 
+    documents {
+      description
+      id
+      name
+      files {
+	    	filename
+	    	url
+				mimetype      
+      	size 
+      	encoding
+    	}          
+      author {
+        name
+      }
+    }
+  }
+}

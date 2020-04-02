@@ -1,0 +1,10 @@
+mutation authentication {
+  login(input: { 
+    email: "ofjwqfjfoewpf@gmail.com", 
+    password: "123456789" 
+  }) {
+    ok
+    token
+    refreshToken
+  }
+}
