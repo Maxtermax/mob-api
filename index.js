@@ -1,3 +1,3 @@
-console.log("HOLA MUNDO");
+require("dotenv").config();
 require("./core/libs");
 require("./core/bootstrap")();
