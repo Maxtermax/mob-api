@@ -6,11 +6,6 @@ async function bootstrap() {
     DataProvider.initialize(async (connection, error) => {
       if (error) throw error;
       Object.assign(global, models(connection));
-      /*
-      Comment.sequelize.sync({ force: true }).then(() => {
-        console.log("force");
-      });
-      */
       app.listen(PORT, () => {
         logger(`App listen in: port ${PORT}`);
       });
