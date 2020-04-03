@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "./node_modules/.bin/webpack",
     "start": "NODE_ENV=production node ./index.js",
     "debug": "NODE_ENV=development node --inspect=0.0.0.0:9229 ./index.js",
-    "build": "docker build --tag mob:0.01 .",
+    "docker": "docker build --tag mob:0.01 .",
     "run-image": "docker run mob:0.01",
     "compose": "docker-compose -f docker-compose.yml up"
   },
