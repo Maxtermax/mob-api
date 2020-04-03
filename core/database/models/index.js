@@ -1,4 +1,3 @@
 module.exports = () => ({
-  User: require("./User"),
-  Comment: require("./Comment")
+  Comment: require("./Comment"),
 });

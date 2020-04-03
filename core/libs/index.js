@@ -3,16 +3,16 @@ const { DataProvider, models } = require("../database");
 const logger = require("./logger");
 const resolvePromise = require("./resolvePromise");
 const mapErrorToResponse = require("./mapErrorToResponse");
-const hashPassword = require("./hashPassword");
+const validators = require("./validators.js");
 
 const libs = {
   ...config,
+  ...validators,
   models,
-  hashPassword,
   DataProvider,
   logger,
   resolvePromise,
-  mapErrorToResponse
+  mapErrorToResponse,
 };
 
 Object.assign(global, libs);

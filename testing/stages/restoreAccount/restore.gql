@@ -1,5 +1,0 @@
-mutation recuperarCuenta {
-  restoreAccount(email:"esnene02@gmail.com") {
-    ok
-  }
-}

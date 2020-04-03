@@ -10,13 +10,10 @@ class PostgresSqlProvider extends Model {
     return Promise.resolve(sequelize);
   }
 }
-
+/*
 Object.assign(PostgresSqlProvider.prototype, {
-  find: require("./findRecord"),
-  update: require("./update"),
-  remove: require("./remove"),
-  findById: require("./findById"),
-  findRecord: require("./findRecord")
+  find: require("./find"),
 });
+*/
 
 module.exports = PostgresSqlProvider;

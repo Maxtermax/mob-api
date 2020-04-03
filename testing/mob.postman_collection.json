@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "261ead1d-d96a-430c-9115-ddaa9b0f84dc",
+		"name": "mob",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Try to create comment with invalid text field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9327139-fd56-47c2-812c-0a46323f2c22",
+						"exec": [
+							"pm.test(\"Should response with status 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.code equal to missingArgument\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.code).to.eql(\"missingArgument\");",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.details equal to text\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.details).to.eql(\"text\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to create comment with invalid userName field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9327139-fd56-47c2-812c-0a46323f2c22",
+						"exec": [
+							"pm.test(\"Should response with status 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.code equal to missingArgument\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.code).to.eql(\"missingArgument\");",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.details equal to userName\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.details).to.eql(\"userName\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"comentario de prueba\",\n\t\"userName\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to create comment with invalid movieId field",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9327139-fd56-47c2-812c-0a46323f2c22",
+						"exec": [
+							"pm.test(\"Should response with status 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.code equal to missingArgument\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.code).to.eql(\"missingArgument\");",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.details equal to movieId\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.exception.details).to.eql(\"movieId\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"comentario de prueba\",\n\t\"userName\": \"esneyder\",\n\t\"movieId\": \"\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to create comment with al valid fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9327139-fd56-47c2-812c-0a46323f2c22",
+						"exec": [
+							"pm.test(\"Should response with status 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.code equal to missingArgument\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.ok).to.eql(true);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"comentario de prueba\",\n\t\"userName\": \"esneyder\",\n\t\"movieId\": 8 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Try to create comment with al valid fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c9327139-fd56-47c2-812c-0a46323f2c22",
+						"exec": [
+							"pm.test(\"Should response with status 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Should response with exception.code equal to missingArgument\", function () {",
+							"  let jsonData = pm.response.json();",
+							"  pm.expect(jsonData.ok).to.eql(true);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"text\": \"comentario de prueba\",\n\t\"userName\": \"esneyder\",\n\t\"movieId\": 8 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

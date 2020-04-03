@@ -1,18 +1,19 @@
+const app = require("./app");
+const PORT = process.env.PORT || 3000;
+
 async function bootstrap() {
   try {
     DataProvider.initialize(async (connection, error) => {
       if (error) throw error;
       Object.assign(global, models(connection));
-      const { ok, error: createUserException, result } = await resolvePromise(
-        User.sync({ force: true }).then(() =>
-          User.create({
-            name: "esneyder",
-            email: "esnene02@gmail.com",
-            password: "test"
-          })
-        )
-      );
-      console.log({ ok, createUserException, result });
+      /*
+      Comment.sequelize.sync({ force: true }).then(() => {
+        console.log("force");
+      });
+      */
+      app.listen(PORT, () => {
+        logger(`App listen in: port ${PORT}`);
+      });
     });
   } catch (error) {
     logger({ error });

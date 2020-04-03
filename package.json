@@ -4,7 +4,7 @@
   "description": "Mob is a simple movie app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "newman run ./testing/mob.postman_collection.json --bail --env-var url=http://localhost:3000",
     "start": "NODE_ENV=production node ./index.js",
     "debug": "NODE_ENV=development node --inspect=0.0.0.0:9229 ./index.js",
     "docker": "docker build --tag mob:0.01 .",
@@ -14,12 +14,13 @@
   "author": "maxtermax",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "node-fetch": "^2.6.0",
-    "passport": "^0.4.1",
-    "passport-auth0": "^1.3.2",
+    "morgan": "^1.10.0",
+    "newman": "^4.6.0",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.5"

@@ -1,8 +1,0 @@
-query getProfile {
-  getOwnProfile(input: { }) {
-    name
-    rol
-    type
-    id 
-  }
-}

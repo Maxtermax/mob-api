@@ -1,0 +1,31 @@
+image: node:10.15.3
+
+stages:
+  - test
+  - build
+  - deploy
+
+build:
+  type: build
+  script:
+    - npm install
+
+test:
+  type: test
+  script:
+    - apt-get update -qy
+    - npm install
+    - npm install newman
+    - npm run start.js
+
+deploy:
+  type: deploy
+  image: ruby:2.3.3
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - apt-get update
+    - gem install dpl
+    - dpl --provider=heroku --skip_cleanup=true --app=mobapp --api-key=$HEROKU_STAGING_API_KEY
+  only:
+    - master

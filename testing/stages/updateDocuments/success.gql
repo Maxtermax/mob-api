@@ -1,9 +1,0 @@
-mutation updateDocument {
-  updateDocument(input:{
-    id:<id>
-    name:"actualizado3"
-    task:<task>
-  }) {
-    ok
-  }
-}

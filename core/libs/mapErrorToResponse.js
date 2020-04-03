@@ -1,4 +1,4 @@
-function mapErrorToResponse({ error }) {
+function mapErrorToResponse({ res, error }) {
   const requiredFields =
     error &&
     error.hasOwnProperty("requiredFields") &&
@@ -33,99 +33,89 @@ function mapErrorToResponse({ error }) {
     error && error.hasOwnProperty("code") && error.code === "missingArgument";
 
   if (MissingArgument) {
-    return {
-      status: 400,
+    return res.status(400).json({
       exception: {
         ...Exceptions.MISSING_ARGUMENT,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (notFound) {
-    return {
-      status: 400,
+    return res.status(404).json({
       exception: {
         ...Exceptions.NOT_FOUND,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (notAllow) {
-    return {
-      status: 405,
+    return res.status(405).json({
       exception: {
         ...Exceptions.NOT_ALLOW,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (requestRejected) {
-    return {
-      status: 403,
+    return res.status(403).json({
       exception: {
         ...Exceptions.REQUEST_REJECTED,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (duplicateEmail) {
-    return {
-      status: 409,
+    return res.status(409).json({
       exception: {
         ...Exceptions.DUPLICATE_EMAIL,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (requiredFields) {
-    return {
-      status: 400,
+    return res.status(400).json({
       exception: {
         ...Exceptions.REQUIRED_FIELDS,
-        details: error.requiredFields
-      }
-    };
+        details: error.requiredFields,
+      },
+    });
   }
 
   if (invalidFormats) {
-    return {
-      status: 400,
+    return res.status(400).json({
       exception: {
         ...Exceptions.INVALID_FORMATS,
-        details: error.invalidFormats
-      }
-    };
+        details: error.invalidFormats,
+      },
+    });
   }
 
   if (invalidTypes) {
-    return {
-      status: 400,
+    return res.status(400).json({
       exception: {
         ...Exceptions.INVALID_TYPE,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
   if (invalidField) {
-    return {
-      status: 400,
+    return res.status(400).json({
       exception: {
         ...Exceptions.INVALID_FIELD,
-        ...error
-      }
-    };
+        ...error,
+      },
+    });
   }
 
-  return {
-    status: 500,
-    exception: Exceptions.SERVER_ERROR
-  };
+  return res.status(500).json({
+    exception: Exceptions.SERVER_ERROR,
+  });
 }
 
 module.exports = mapErrorToResponse;
