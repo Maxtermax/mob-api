@@ -15,7 +15,8 @@ test:
   script:
     - npm install
     - npm install newman
-    - npm run start.js
+    - npm run start
+    - npm run test
 
 deploy:
   type: deploy
