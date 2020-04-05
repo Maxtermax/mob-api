@@ -1,6 +1,6 @@
-const { spawn } = require("child_process");
 const app = require("./app");
 const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || "localhost";
 
 async function bootstrap() {
   try {
@@ -23,6 +23,9 @@ async function bootstrap() {
               collection: require("../testing/mob.postman_collection.json"),
               reporters: "cli",
               bail: true,
+              environment: {
+                url: `http://${HOST}:${PORT}`,
+              },
             },
             function (err) {
               if (err) {

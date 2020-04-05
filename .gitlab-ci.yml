@@ -1,4 +1,4 @@
-image: node:10.15.3
+image: docker:latest
 
 stages:
   - test
@@ -15,6 +15,7 @@ variables:
 
 test:
   type: test
+  image: maxtermax/mob
   script:
     - npm install
     - npm install newman
