@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
-const { authMiddleware } = require("../app/authConfig");
+const { authMiddleware } = require("./middlewares/authConfig");
 const bodyParser = require("body-parser");
 const Comments = require("./controllers/Comments");
 
