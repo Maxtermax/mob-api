@@ -7,7 +7,7 @@
     "test": "newman run ./testing/mob.postman_collection.json --bail --env-var url=http://localhost:3000",
     "start": "NODE_ENV=production node ./index.js",
     "debug": "NODE_ENV=development node --inspect=0.0.0.0:9229 ./index.js",
-    "docker": "docker build --tag mob:0.01 .",
+    "build": "docker build --tag mob:0.01 .",
     "run-image": "docker run mob:0.01",
     "compose": "docker-compose -f docker-compose.yml up"
   },
@@ -17,6 +17,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "dotenv-flow": "^3.1.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "morgan": "^1.10.0",
