@@ -1,4 +1,4 @@
-image: docker:17.05.0-ce
+image: docker:latest
 
 stages:
   - test
@@ -26,7 +26,7 @@ deploy:
   tags:
     - docker
   script:
-    - docker login --username=_ --password=$HEROKU_API_KEY registry.heroku.com
+    - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
     - docker pull $CONTAINER_IMAGE:staging
     - docker tag $CONTAINER_IMAGE:staging registry.heroku.com/mobapp-api/web
     - docker push registry.heroku.com/mobapp-api/web
