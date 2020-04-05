@@ -2,13 +2,7 @@ image: node:10.15.3
 
 stages:
   - test
-  - build
   - deploy
-
-build:
-  type: build
-  script:
-    - npm install
 
 test:
   type: test

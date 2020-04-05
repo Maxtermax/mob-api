@@ -1,7 +1,11 @@
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
+
 const authConfig = {
   domain: process.env.DOMAIN,
   audience: process.env.IDENTIFIER,
 };
+
 module.exports = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
