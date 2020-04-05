@@ -4,10 +4,17 @@ stages:
   - test
   - deploy
 
+services:
+  - postgres:12.2-alpine
+
+variables:
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
+  POSTGRES_HOST_AUTH_METHOD: trust
+
 test:
   type: test
-  image: postgres
-
   script:
     - npm install
     - npm install newman
