@@ -1,4 +1,4 @@
-image: docker:latest
+image: docker:17.05.0-ce
 
 stages:
   - test
