@@ -1,22 +1,10 @@
 version: "3"
 services:
   web:
-    build: .
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgres://postgres:mobexample@db:5432/postgres
+    image: maxtermax/mob:latest
     ports:
       - "3000:3000"
       - "9229:9229"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-  db:
-    image: postgres
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_PASSWORD: mobexample
-      POSTGRES_DB: mobdb
