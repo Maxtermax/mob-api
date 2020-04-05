@@ -17,3 +17,5 @@ module.exports = jwt({
   issuer: `https://${authConfig.domain}/`,
   algorithm: ["RS256"],
 });
+
+// DATABASE_URL=postgres://postgres:mobexample@localhost:5432/postgres

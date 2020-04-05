@@ -6,6 +6,12 @@ stages:
 
 test:
   type: test
+  image: postgres
+  environment:
+    POSTGRES_PASSWORD: mobexample
+    POSTGRES_DB: mobdb
+  ports:
+    - 5432:5432
   script:
     - npm install
     - npm install newman
