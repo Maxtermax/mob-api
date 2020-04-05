@@ -1,4 +1,4 @@
-image: docker:latest
+image: docker:18.09.7
 
 stages:
   - test
@@ -6,9 +6,7 @@ stages:
 
 services:
   - postgres:12.2-alpine
-  - docker:dind
-      entrypoint: ["env", "-u", "DOCKER_HOST"]
-      command: ["dockerd-entrypoint.sh"]
+  - docker:18.09.7-dind
 
 variables:
   POSTGRES_DB: postgres
