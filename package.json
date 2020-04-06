@@ -7,7 +7,7 @@
     "test": "TEST=true newman run ./testing/mob.postman_collection.json --bail --env-var url=http://localhost:3000",
     "start": "NODE_ENV=production node ./index.js",
     "debug": "NODE_ENV=development node --inspect=0.0.0.0:9229 ./index.js",
-    "build": "docker build --tag mob:0.01 .",
+    "build-image": "docker build --tag mob:0.01 .",
     "run-image": "docker run mob:0.01",
     "compose": "docker-compose -f docker-compose.yml up"
   },

@@ -1,5 +1,6 @@
 const createRecord = require("./createRecord");
 const findByMovieId = require("./findByMovieId");
+const User = require("../User");
 class Comment extends DataProvider {}
 
 Comment.init(
@@ -8,11 +9,6 @@ Comment.init(
       type: Sequelize.TEXT,
       allowNull: false,
       is: /[(\r\n|\r|\n)A-Za-záéëËíóúÁÉÍÓÚñÑ0-9_:#$&/*¡;%?=()"\]\, /[/.-]{2,500}/gi,
-    },
-    userName: {
-      type: Sequelize.STRING,
-      allowNull: false,
-      is: /[A-Za-záéëËíóúÁÉÍÓÚñÑ0-9_ .]{3,50}/i,
     },
     movieId: {
       type: Sequelize.INTEGER,
@@ -26,6 +22,8 @@ Comment.init(
     modelName: "Comment",
   }
 );
+
+User.hasMany(Comment);
 
 Comment.findByMovieId = findByMovieId;
 Comment.createRecord = createRecord;
