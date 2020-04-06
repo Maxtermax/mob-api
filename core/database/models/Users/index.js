@@ -1,4 +1,3 @@
-const Comment = require("../Comment");
 class Users extends DataProvider {}
 
 Users.init(
@@ -16,7 +15,7 @@ Users.init(
   }
 );
 
-Comment.belongsTo(User);
+require("../Comments").belongsTo(User);
 
 Users.findByMovieId = findByMovieId;
 Users.createRecord = createRecord;
