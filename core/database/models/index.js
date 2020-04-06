@@ -4,15 +4,16 @@ module.exports = () => {
 
   Promise.all([Comment.sync({ force: true }), User.sync({ force: true })]).then(
     () => {
-      Comment.hasOne(User, { foreignKey: "userId" });
-      User.hasMany(Comment, { foreignKey: "commentId" });
+      User.hasMany(Comment);
+      Comment.hasOne(User);
       Promise.all([
         Comment.sync({ alter: true, syncOnAssociation: true }),
         User.sync({ alter: true, syncOnAssociation: true }),
-      ]).then(() => logger("RELATIONSHIPS DONE"));
+      ]).then(() => {
+        logger("RELATIONSHIPS DONE: ");
+      });
     }
   );
-
   return {
     User,
     Comment,
