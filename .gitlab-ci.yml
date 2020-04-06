@@ -30,8 +30,9 @@ deploy:
     - docker
   script:
     - echo "$HEROKU_API_KEY" | docker login --username=_ --password-stdin registry.heroku.com
+    - export BUILD_ID=$(($RANDOM))
     - docker pull $CONTAINER_IMAGE:latest
-    - docker tag $CONTAINER_IMAGE:latest registry.heroku.com/mobapp-api/web
+    - docker tag $CONTAINER_IMAGE:$BUILD_ID registry.heroku.com/mobapp-api/web
     - docker push registry.heroku.com/mobapp-api/web
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web --app mobapp-api
   only:
