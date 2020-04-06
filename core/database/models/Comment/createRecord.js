@@ -27,6 +27,8 @@ async function createRecord(payload) {
   const { ok, error, result } = await resolvePromise(
     Comment.create({ text, userId, movieId })
   );
+  logger({ text, userId, movieId });
+  logger({ ok, error, result });
   if (ok) {
     const { id = "" } = result;
     return Promise.resolve({ ok: true, id });
