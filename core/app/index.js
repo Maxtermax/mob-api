@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const Comments = require("./controllers/Comments");
 
 app.use(
-  cors({ origin: ["http://localhost:3000", "https://82a091ba.ngrok.io"] })
+  cors({ origin: ["http://localhost:3000", "https://80438248.ngrok.io"] })
 );
 app.use(authMiddleware);
 
