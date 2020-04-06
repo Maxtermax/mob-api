@@ -6,7 +6,7 @@ async function bootstrap() {
     DataProvider.initialize(async (connection, error) => {
       if (error) throw error;
       Object.assign(global, models(connection));
-
+      /*
       Comment.sync({ force: true }).then(() => {
         console.log("sync comment");
       });
@@ -14,7 +14,7 @@ async function bootstrap() {
       User.sync({ force: true }).then(() => {
         console.log("sync user");
       });
-
+      */
       app.listen(PORT, () => {
         logger(`App listen in: port ${PORT}`);
         if (process.env.TEST) {

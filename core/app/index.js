@@ -17,7 +17,7 @@ app.get("/test", (req, res) => {
   });
 });
 
-app.get("/api/v1/comments/find/:id", Comments.findByMovieId);
+app.get("/api/v1/comments/find/by/movie/:id", Comments.findByMovieId);
 app.post("/api/v1/comments/create", Comments.createRecord);
 
 app.post("/api/v1/users/create", Users.createRecord);
