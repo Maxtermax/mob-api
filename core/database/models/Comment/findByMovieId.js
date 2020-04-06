@@ -10,7 +10,7 @@ async function findByMovieId(movieId) {
   }
   const { ok, error, result } = await resolvePromise(
     Comment.findAll({
-      include: [{ model: User }],
+      include: [{ all: true }],
       where: {
         movieId: Number(movieId),
       },
