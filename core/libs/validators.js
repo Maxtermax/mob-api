@@ -26,10 +26,18 @@ const validNumber = (payload) => {
   return false;
 };
 
+const validEmail = (value = "") => {
+  let result = /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){3}\.[a-z]{2,3}$/g.exec(
+    value
+  );
+  if (result) return result[0].length === value.length;
+  return false;
+};
+
 const validName = (data = "") => {
   let result = /[A-Za-záéëËíóúÁÉÍÓÚñÑ0-9_ .]{3,50}/i.exec(data);
   if (result) return result[0].length === data.length && !allSpace(data);
   return false;
 };
 
-module.exports = { validText, validName, validNumber };
+module.exports = { validText, validName, validNumber, validEmail };
