@@ -7,11 +7,13 @@ async function bootstrap() {
       if (error) throw error;
       Object.assign(global, models(connection));
 
-      /*
       Comment.sync({ force: true }).then(() => {
-        console.log("drop");
+        console.log("sync comment");
       });
-      */
+
+      User.sync({ force: true }).then(() => {
+        console.log("sync user");
+      });
 
       app.listen(PORT, () => {
         logger(`App listen in: port ${PORT}`);
