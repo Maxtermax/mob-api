@@ -9,7 +9,7 @@ const Users = require("./controllers/Users");
 app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan("combined"));
-app.use(authMiddleware);
+// app.use(authMiddleware);
 
 app.get("/test", (req, res) => {
   res.send({

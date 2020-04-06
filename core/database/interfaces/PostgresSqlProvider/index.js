@@ -4,7 +4,9 @@ global.Sequelize = Sequelize;
 
 class PostgresSqlProvider extends Model {
   static async connect() {
-    const sequelize = new Sequelize(process.env.DATABASE_URL);
+    const sequelize = new Sequelize(process.env.DATABASE_URL, {
+      syncOnAssociation: true,
+    });
     const { error } = await resolvePromise(sequelize.authenticate());
     if (error) return Promise.reject(error);
     return Promise.resolve(sequelize);

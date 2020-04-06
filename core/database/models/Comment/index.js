@@ -22,9 +22,7 @@ Comment.init(
     modelName: "Comment",
   }
 );
-Comment.sync({ force: true }).then(() => {
-  console.log("sync comment");
-});
+
 Comment.findByMovieId = findByMovieId;
 Comment.createRecord = createRecord;
 

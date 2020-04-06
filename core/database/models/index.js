@@ -1,8 +1,17 @@
 module.exports = () => {
   const User = require("./User");
   const Comment = require("./Comment");
-  User.hasMany(Comment, { foreignKey: "userId" });
-  Comment.belongsTo(User, { foreignKey: "userId" });
+
+  Promise.all([Comment.sync({ force: true }), User.sync({ force: true })]).then(
+    () => {
+      Comment.hasOne(User, { foreignKey: "userId" });
+      User.hasMany(Comment, { foreignKey: "commentId" });
+      Promise.all([
+        Comment.sync({ alter: true, syncOnAssociation: true }),
+        User.sync({ alter: true, syncOnAssociation: true }),
+      ]).then(() => logger("RELATIONSHIPS DONE"));
+    }
+  );
 
   return {
     User,

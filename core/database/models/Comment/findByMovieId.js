@@ -19,7 +19,7 @@ async function findByMovieId(movieId) {
   logger({ ok, error, result });
   if (ok) {
     const notFound = result === null;
-    if (notFound) return Promise.reject({ ...Exceptions.NOT_FOUND });
+    if (notFound) return Promise.resolve([]);
     return Promise.resolve(result);
   }
   return Promise.reject({ ...Exceptions.SERVER_ERROR, details: error });
