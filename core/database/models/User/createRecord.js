@@ -18,8 +18,13 @@ async function createRecord(payload) {
   if (typeof email !== "string") {
     return Promise.reject({ ...Exceptions.INVALID_TYPES, details: "email" });
   }
-  const { ok, error } = await resolvePromise(User.signUser({ name, email }));
-  if (ok) return Promise.resolve({ ok: true });
+  const { ok, error, result } = await resolvePromise(
+    User.signUser({ name, email })
+  );
+  if (ok) {
+    const { id = "" } = result;
+    return Promise.resolve({ id });
+  }
   return Promise.reject({ ...Exceptions.SERVER_ERROR, details: error });
 }
 

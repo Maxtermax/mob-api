@@ -8,10 +8,11 @@ async function bootstrap() {
       Object.assign(global, models(connection));
 
       /*
-      Comment.sequalize.sync({ force: true }).then(() => {
+      Comment.sync({ force: true }).then(() => {
         console.log("drop");
       });
       */
+
       app.listen(PORT, () => {
         logger(`App listen in: port ${PORT}`);
         if (process.env.TEST) {
@@ -26,10 +27,10 @@ async function bootstrap() {
             },
             function (err) {
               if (err) {
-                console.log(err);
+                logger(err);
                 process.exit(1);
               } else {
-                console.log("collection run complete!");
+                logger("collection run complete!");
                 process.exit(0);
               }
             }

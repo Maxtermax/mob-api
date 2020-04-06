@@ -3,7 +3,7 @@ exports.createRecord = async function createRecord(req, res) {
   const { ok, error, result } = await resolvePromise(
     Comment.createRecord(body)
   );
-  console.log({ ok, error, result });
+  // logger({ ok, error, result });
   if (ok) return res.status(201).json(result);
   return mapErrorToResponse({ res, error });
 };

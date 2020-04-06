@@ -21,7 +21,6 @@ function validText(data = "") {
 const validNumber = (payload) => {
   const value = String(payload);
   let result = /[0-9]{1,100}/g.exec(value);
-  console.log({ value, result });
   if (result) return result[0].length === value.length;
   return false;
 };
