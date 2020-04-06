@@ -1,14 +1,11 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
 const morgan = require("morgan");
-const { authMiddleware } = require("./middlewares");
+const { authMiddleware, cors } = require("./middlewares");
 const bodyParser = require("body-parser");
 const Comments = require("./controllers/Comments");
 
-app.use(
-  cors({ origin: ["http://localhost:3000", "https://80438248.ngrok.io"] })
-);
+app.use(cors());
 app.use(authMiddleware);
 
 app.use(bodyParser.json());
