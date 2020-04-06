@@ -1,10 +1,8 @@
-const Comment = require("./Comment");
-
 class User extends DataProvider {}
 
 User.init(
   {
-    userName: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false,
       is: /[A-Za-záéëËíóúÁÉÍÓÚñÑ0-9_ .]{3,50}/i,
@@ -16,10 +14,5 @@ User.init(
     modelName: "User",
   }
 );
-
-Comment.belongsTo(User);
-
-User.findByMovieId = findByMovieId;
-User.createRecord = createRecord;
 
 module.exports = User;
