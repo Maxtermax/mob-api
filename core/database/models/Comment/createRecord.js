@@ -1,13 +1,7 @@
 async function createRecord(payload) {
-  const { text, userName, movieId } = payload;
+  const { text, movieId } = payload;
   if (!text) {
     return Promise.reject({ ...Exceptions.MISSING_ARGUMENT, details: "text" });
-  }
-  if (!userName) {
-    return Promise.reject({
-      ...Exceptions.MISSING_ARGUMENT,
-      details: "userName",
-    });
   }
   if (!movieId) {
     return Promise.reject({
@@ -17,9 +11,6 @@ async function createRecord(payload) {
   }
   if (typeof text !== "string") {
     return Promise.reject({ ...Exceptions.INVALID_TYPES, details: "text" });
-  }
-  if (typeof userName !== "string") {
-    return Promise.reject({ ...Exceptions.INVALID_TYPES, details: "userName" });
   }
   if (typeof movieId !== "number") {
     return Promise.reject({ ...Exceptions.INVALID_TYPES, details: "movieId" });

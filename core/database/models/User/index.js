@@ -1,3 +1,5 @@
+const createRecord = require("./createRecord");
+
 class User extends DataProvider {}
 
 User.init(
@@ -14,5 +16,7 @@ User.init(
     modelName: "User",
   }
 );
+
+User.createRecord = createRecord;
 
 module.exports = User;

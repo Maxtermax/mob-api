@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const { authMiddleware, cors } = require("./middlewares");
 const bodyParser = require("body-parser");
 const Comments = require("./controllers/Comments");
+const Users = require("./controllers/Users");
 
 app.use(cors());
 app.use(authMiddleware);
@@ -19,5 +20,7 @@ app.get("/test", (req, res) => {
 
 app.get("/api/v1/comments/find/:id", Comments.findByMovieId);
 app.post("/api/v1/comments/create", Comments.createRecord);
+
+app.post("/api/v1/users/create", Users.createRecord);
 
 module.exports = app;
