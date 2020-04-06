@@ -27,11 +27,11 @@ async function createRecord(payload) {
   const { ok, error, result } = await resolvePromise(
     Comment.create({ text, userId, movieId })
   );
-  logger({ text, userId, movieId });
-  logger({ ok, error, result });
+  // logger({ text, userId, movieId });
+  // logger({ ok, error, result });
   if (ok) {
     const { id = "" } = result;
-    return Promise.resolve({ ok: true, id });
+    return Promise.resolve({ ok: true, ...result });
   }
   return Promise.reject({ ...Exceptions.SERVER_ERROR, details: error });
 }
