@@ -10,6 +10,9 @@ User.init(
       allowNull: false,
       is: /[A-Za-záéëËíóúÁÉÍÓÚñÑ0-9_ .]{3,50}/i,
     },
+    picture: {
+      type: Sequelize.STRING,
+    },
     email: {
       type: Sequelize.STRING,
       allowNull: false,

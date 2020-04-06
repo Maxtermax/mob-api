@@ -5,13 +5,14 @@ async function findByMovieId(movieId) {
       details: "movieId",
     });
   }
-  if (typeof movieId !== "number") {
+  if (!validNumber(movieId)) {
     return Promise.reject({ ...Exceptions.INVALID_TYPES, details: "movieId" });
   }
   const { ok, error, result } = await resolvePromise(
-    Comment.find({
+    Comment.findAll({
+      include: [{ model: User }],
       where: {
-        movieId,
+        movieId: Number(movieId),
       },
     })
   );
