@@ -22,7 +22,9 @@ User.init(
     modelName: "User",
   }
 );
-
+User.sync({ force: true }).then(() => {
+  console.log("sync user");
+});
 User.createRecord = createRecord;
 User.signUser = signUser;
 
