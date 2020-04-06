@@ -7,10 +7,9 @@ const Comments = require("./controllers/Comments");
 const Users = require("./controllers/Users");
 
 app.use(cors());
-app.use(authMiddleware);
-
 app.use(bodyParser.json());
 app.use(morgan("combined"));
+app.use(authMiddleware);
 
 app.get("/test", (req, res) => {
   res.send({
