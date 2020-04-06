@@ -1,6 +1,5 @@
 const createRecord = require("./createRecord");
 const findByMovieId = require("./findByMovieId");
-const Users = ;
 class Comment extends DataProvider {}
 
 Comment.init(
@@ -23,7 +22,7 @@ Comment.init(
   }
 );
 
-require("../Users").hasMany(Comment);
+require("../User").hasMany(Comment);
 
 Comment.findByMovieId = findByMovieId;
 Comment.createRecord = createRecord;
