@@ -44,11 +44,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/comments/create",
+					"raw": "{{url}}/api/v1/comments/create",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"comments",
 						"create"
 					]
@@ -95,11 +97,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/comments/create",
+					"raw": "{{url}}/api/v1/comments/create",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"comments",
 						"create"
 					]
@@ -146,11 +150,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/comments/create",
+					"raw": "{{url}}/api/v1/comments/create",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"comments",
 						"create"
 					]
@@ -193,11 +199,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/comments/create",
+					"raw": "{{url}}/api/v1/comments/create",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"api",
+						"v1",
 						"comments",
 						"create"
 					]
@@ -240,11 +248,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/comments/create",
+					"raw": "{{url}}/apí/v1/comments/create",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
+						"apí",
+						"v1",
 						"comments",
 						"create"
 					]

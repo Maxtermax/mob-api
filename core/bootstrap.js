@@ -1,6 +1,5 @@
 const app = require("./app");
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || "localhost";
 
 async function bootstrap() {
   try {
@@ -15,17 +14,15 @@ async function bootstrap() {
       */
       app.listen(PORT, () => {
         logger(`App listen in: port ${PORT}`);
-
         if (process.env.TEST) {
           const newman = require("newman");
+          const environment = require("../testing/mob-prod.postman_environment.json");
           newman.run(
             {
               collection: require("../testing/mob.postman_collection.json"),
               reporters: "cli",
               bail: true,
-              environment: {
-                url: `http://${HOST}:${PORT}`,
-              },
+              environment,
             },
             function (err) {
               if (err) {

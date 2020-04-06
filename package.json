@@ -4,7 +4,7 @@
   "description": "Mob is a simple movie app",
   "main": "index.js",
   "scripts": {
-    "test": "newman run ./testing/mob.postman_collection.json --bail --env-var url=http://localhost:3000",
+    "test": "TEST=true newman run ./testing/mob.postman_collection.json --bail --env-var url=http://localhost:3000",
     "start": "NODE_ENV=production node ./index.js",
     "debug": "NODE_ENV=development node --inspect=0.0.0.0:9229 ./index.js",
     "build": "docker build --tag mob:0.01 .",

@@ -22,7 +22,6 @@ test:
   image: maxtermax/mob
   script:
     - npm install
-    - npm install newman
     - npm run start
 
 deploy:

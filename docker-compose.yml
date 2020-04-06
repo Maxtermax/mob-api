@@ -1,10 +1,26 @@
 version: "3"
 services:
   web:
+    build: .
     image: maxtermax/mob:latest
+    depends_on:
+      - db
     ports:
       - "3000:3000"
       - "9229:9229"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: mobdb123456789
+      POSTGRES_DB: mobdb
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
